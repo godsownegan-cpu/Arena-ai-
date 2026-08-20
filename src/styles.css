@@ -157,12 +157,17 @@ button:focus-visible, input:focus-visible { outline: 2px solid #ff714b; outline-
 .orb-one { background: #f4684b; left: 35%; top: 10%; }
 .orb-two { background: #6dbeb8; right: -10%; bottom: -20%; }
 .stage { position: absolute; inset: 0; z-index: 5; transform-origin: center center; transition: transform .25s ease; }
-.connectors { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
-.connector-shadow { fill: none; stroke: rgba(0,0,0,.6); stroke-width: 5; vector-effect: non-scaling-stroke; }
-.connector-line { fill: none; stroke-width: 1.3; opacity: .48; vector-effect: non-scaling-stroke; transition: opacity .2s; }
-.connector-line.dashed { stroke-dasharray: 5 6; opacity: .32; }
-.connection-group:hover .connector-line { opacity: 1; stroke-width: 2; }
-.signal-dot { opacity: .8; }
+.connector-canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.flow-meta { transition: color .3s ease; }
+.flow-meta.on { color: #a9c97a !important; text-shadow: 0 0 8px rgba(185,220,124,.35); }
+.connector-tip { position: fixed; z-index: 70; pointer-events: none; display: flex; align-items: center; gap: 7px; max-width: min(430px, calc(100vw - 40px)); background: rgba(21,24,28,.94); border: 1px solid rgba(255,255,255,.14); border-radius: 9px; padding: 8px 12px; box-shadow: 0 18px 44px rgba(0,0,0,.45); backdrop-filter: blur(8px); font-size: 10px; animation: tipIn .16s ease; }
+@keyframes tipIn { from { opacity: 0; transform: translateY(5px) scale(.97); } }
+.connector-tip i { width: 7px; height: 7px; border-radius: 50%; flex: 0 0 auto; }
+.connector-tip b { font-weight: 600; color: #d9dcd5; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.connector-tip .tip-arrow { color: #4f5656; flex: 0 0 auto; }
+.connector-tip small { margin-left: 4px; padding-left: 10px; border-left: 1px solid rgba(255,255,255,.09); font: 500 7px 'DM Mono'; letter-spacing: .1em; color: #778080; white-space: nowrap; }
+.view-dock .energy { color: #7c8383; }
+.view-dock .energy.on { color: #cde98a; text-shadow: 0 0 9px rgba(185,220,124,.55); }
 
 .canvas-node {
   --accent: #ff714b;
